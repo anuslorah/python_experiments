@@ -1,0 +1,33 @@
+develop a console application in Python with the following requirements:
+
+The application should accept two input parameters
+Path to a text file used to read from or write to
+Read/write switch denoting whether the user action is to read the file or to write to the file
+When the user action is to "read" the file
+You should read the file line by line and find the word "imperdiet" in every line
+The output of the read operation is to
+count how many times the word "imperdiet" exists in the file
+and in how many lines it appears
+When the user action is to "write" to the file
+You should prompt the user to enter a sentence
+You should look for the word "imperdiet" in every sentence entered by the user
+The output of the "write" action should be
+how many sentences the user entered
+how many times the word "imperdiet" appear in the user input
+in how many sentences the word "imperdiet" appeared
+While implementing the code, you must also instrument your code for logging and performance as follows.
+
+You will use Python's logging framework to store log information to the "consoleapp.log" file. You must have log messages with each of the following levels: CRITICAL, ERROR, INFO, DEBUG, TRACE. You should configure your logging to log with TRACE level but allow for easy reconfiguration to other log levels without code changes.
+
+You will also need to collect the following performance metrics for your code:
+
+Total execution time
+When in "read" mode
+Average time to read a line from the file
+Average time to find the word "imperdiet" in the line
+When in "write" mode
+Average time to write a line in the file
+Average time to find the word "imperdiet" in the line
+You should add an additional (administrative) input to the program to allow the user to print the performance statistics after the output.
+
+To test the application, you need to go to https://lipsum.com (Links to an external site.) and generate 1000 paragraphs of text and test your console application. You should test with TRACE level logging and metrics output.
