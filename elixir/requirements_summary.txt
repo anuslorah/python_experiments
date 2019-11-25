@@ -1,0 +1,142 @@
+QUEST FOR LIFE
+
+requirement/how it was solved/solution
+------------
+Min 6 rooms 
+------------
+room1 = ('Back into the woods', "The trees are tall as cathedrals. The leaves whisper in the wind.\nAnd the sky is getting lighter by the minute. \nYou look around.")
+room2 = ('East, towards the river', "The sound of water gets louder. Soon you come to a river\nbank. You look up and down the river. There is no bridge in sight.\nYou look behind you: the path you have followed here \nhas disappeared. But there is hope! Just to the other side of \nthe river there is a wide footpath running along the bank.")
+room3 = ('South along the river bank', "The sun has disappeared behind the clouds. You start walking towards \nthe south. There is a loud crashing sound behind you. \nYou look back and see that the footpath has been blocked \nby a huge boulder. Nothing to do but to continue onward. \nYou come to a bridge. Of course it is not a regular bridge. \nThere is a troll challenging you.")
+room4 = ('West, along the edge of the woods', "As you walk along the the edge of the forest you see \nthe path ending at a stone wall. It is too tall and smooth \nto climb and seems to continue on for as far as you can see. \nBut behold! There seems to be a way through!")
+room5 = ('West, towards the canyon', "Walking gets easier as you descend into the canyon. \nLooks like the river has dried out long ago leaving a bed of smooth stones. \nYou follow its meandering course as it starts climbing up \nthe foothills. After yet another turn you see smoke. Fire! is \nyour first thought. but no, when you get closer you realize \nthat the smoke is coming from a dragon\'s mouth. The giant \ngray beast opens one large golden eye...")
+room6 = ('North towards the foothills', "The river snakes off into the west as you come \nto the foothills. Sky has turned grey and it stats to drizzle. \nThe path starts climbing, switching back and forth between \nthe mossy boulders. As you walk around another giant rock you \ncome across a giant stone sphinx. You look around \nand there is no way around him. You look back and \nthe path has diasppeared")
+----------------------------------
+Min 3 Battles/Puzzles/Interactions
+----------------------------------
+Room3: troll bridge, convert a randomly selected number(1 through 10) to binary
+solution:
+1:  01
+2:  10
+3:  11
+4:  100
+5:  101
+6:  110
+7:  111
+8:  1000
+9:  1001
+10: 1010
+
+Room4: puzzle wall, use primary numbers 5, 7, 11, 13, 17, 19, 23 to fill
+a -  b - c 
+  \     / 
+     d   
+  /     \ 
+e -  f  - g  
+so that a + b + c = 41, a + d + g = 41, e + d + c = 41 and e + f + g = 41
+solution:
+5 - 19 - 17
+  \     / 
+    13  
+  /     \ 
+11 - 7 - 23
+
+Room5: fight a dragon
+if you have sword in your satchel you can slay dragon, 0.3 
+  probability that you die
+if you have sword and brownie points in your satchel the 
+  probability that you can slay the dragon increases by 0.3
+if you have golden crown in your satchel you can distract 
+  the dragon with the crown, 0.4 probability that you survive
+if you don't have anything useful you can charm the dragon 
+  with your words, if you use word 'tail' you get past the dragon
+--------------
+Stats
+--------------
+time: increases as you pass through rooms, total of 13, if time > 13, character dies
+experience: increases as you pass through rooms
+satchel: array of items you can pick up (unlimited)
+-----------------
+Number Conversion
+-----------------
+binary challenge
+
+def binaryChallenge(experience):
+  import random
+  
+  r = random.randint(1,11)
+  print(r)
+  print("There are two kinds of people in the world,")
+  print("those who understand binary and those who don't.")
+  print("This is your chance to prove you belong to the elite group..")
+  print("Can you do it?")    
+  if input("Convert " + str(r) + " to binary: ") == dec2bin(int(r)):
+    experience = experience + 10
+
+  else:
+    print("Too bad..")
+    print("The right answer would have been " + str(dec2bin(int(r))))
+    experience = experience + 1
+
+solution:
+1:  01
+2:  10
+3:  11
+4:  100
+5:  101
+6:  110
+7:  111
+8:  1000
+9:  1001
+10: 1010
+----------
+Prime Numbers
+----------
+primeGame(experience, satchel), if you have a book in your 
+satchel you can get a hint.
+
+puzzle wall, use primary numbers 5, 7, 11, 13, 17, 19, 23 to fill
+a -  b - c 
+  \     / 
+     d   
+  /     \ 
+e -  f  - g  
+so that a + b + c = 41, a + d + g = 41, e + d + c = 41 and e + f + g = 41
+solution:
+5 - 19 - 17
+  \     / 
+    13  
+  /     \ 
+11 - 7 - 23
+---------------------------------------------------
+Sets Usage(multiple sets usage with set operations)
+---------------------------------------------------
+line 271 in game.py if set(["tail"]).issubset(set(words)):
+
+-------------------------
+Permutations/combinations
+-------------------------
+Line 40 in challenges.py perms = list(permutations(mylist))
+-----------
+Probability
+-----------
+Room5: fight a dragon
+if you have sword in your satchel you can slay dragon, 0.3 
+  probability that you die
+if you have sword and brownie points in your satchel the 
+  probability that you can slay the dragon increases by 0.3
+Room2: swim across river
+  0.2 probability that you drown
+----------------------
+Recursion(2 functions)
+----------------------
+Binary search tree insert, tree height check, balance check, 
+deletion in challenges.py starting line 86
+----------------------------------------
+Binary Search Trees(search, add, delete)
+----------------------------------------
+Binary search tree insert, tree height check, balance check, 
+deletion in challenges.py starting line 86
+--------------------
+Finite State Machine
+--------------------
+inluded in this directory under finite_state_machine.png
